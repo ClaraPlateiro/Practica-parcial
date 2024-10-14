@@ -18,6 +18,7 @@ const ShowGames = () => {
     const [players, setPlayers] = useState("");
     const [categories, setCategories] = useState("");
     const [editingGame, setEditingGame] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
 
     const refreshGames = async () => {
@@ -68,6 +69,10 @@ const ShowGames = () => {
         }
     };
 
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
     /*const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -114,8 +119,10 @@ const ShowGames = () => {
             const updatedGame = await response.json();
             setGames((prevGames) => {
                 if (editingGame) {
+                     // Si estamos editando un juego existente
                     return prevGames.map((game) => (game.id === updatedGame.id ? updatedGame : game));
                 } else {
+                    // Si estamos creando un nuevo juego
                     return [...prevGames, updatedGame];
                 }
             });
@@ -134,14 +141,24 @@ const ShowGames = () => {
         setIsModalOpen(true);
     };
 
+    const filteredGames = games.filter((game) =>
+        game.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div>
-            <h1>Juegos Olímpicos de París 2024</h1>
+            <h1 className="tittle">Juegos Olímpicos de París 2024</h1>
+            <div className="search-container">
+                <input className="search-input" type="text" placeholder="Buscar juegos..." value={searchTerm} onChange={handleSearchChange}/>
+            </div>
+            <div className="button-container">
             <button className="button-nuevo" onClick={handleOpenModal}>Nuevo Juego</button>
             <button className="button-nuevo" onClick={() => handleClickAdd()}>Nuevo Juego URL</button>
+            </div>
             <div className="card-container">
-                {games.map((game) => {
+                {filteredGames.map((game) => {
                     return (
+                        /*sin filtro games.map((game) =>*/
                         <div className="card-item" key={game.id}>
                             <Card className="titulo-card" title={game.title} refreshGames={refreshGames}/>
                             <div><button className="delete-button" onClick={() => handleClick(game.id)}>Detalle</button></div>

@@ -1,8 +1,10 @@
-import React from "react";
+
 import Modal from "react-modal";
+import React from "react";
 import "./Modal1.css";
 
-const NewGameModal = ({ isOpen, onRequestClose, newGame, handleChange, handleSubmit }) => {
+const NewGameModal = ({ isOpen, onRequestClose, newGame, handleChange, handleSubmit}) => {
+
     return (
         <Modal
             isOpen={isOpen}
@@ -11,7 +13,7 @@ const NewGameModal = ({ isOpen, onRequestClose, newGame, handleChange, handleSub
             className="modal-content"
             ariaHideApp={false}
         >
-            <h2>Nuevo Juego</h2>
+            <h2>{newGame.id ? "Editar Juego" : "Nuevo Juego"}</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     Título:

@@ -1,6 +1,6 @@
 h1 {
-    color: #232175;
-    text-align: center;
+  color: #232175;
+  text-align: center;
 }
 
 p{
@@ -8,11 +8,13 @@ p{
 }
 
 .button-nuevo{
-    background-color: #36ab90;
-    color: #ffffff;
-    padding: 15px 30px;
-    border-radius: 5px;
-    right: 0;
+  background-color: #4A90E2;
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .button-atras{
@@ -48,4 +50,45 @@ p{
 
 .titulo-card{
   justify-content: center;
+}
+
+.tittle {
+  color: #4e4d8d; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  font-size: 50px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  margin-bottom: 30px; /* Margen inferior */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Alinear los botones a la derecha */
+  gap: 10px; /* Espacio entre los botones */
+  margin-bottom: 20px; /* Margen inferior para separación */
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
