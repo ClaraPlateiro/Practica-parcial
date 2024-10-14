@@ -1,0 +1,51 @@
+h1 {
+    color: #232175;
+    text-align: center;
+}
+
+p{
+    color: #232175;
+}
+
+.button-nuevo{
+    background-color: #36ab90;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    right: 0;
+}
+
+.button-atras{
+    background-color: #7979e4;
+    color: #eeeeee;
+    padding: 10px 20px;
+    border-radius: 5px;
+    left: 0;
+    
+}
+
+.delete-button {
+    background-color: #7979e4;
+    color: #eeeeee;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100px;
+    margin: 2px;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card-item {
+  margin: 8px;
+  padding: 16px;
+  background-color: #bdc2d3;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+}
+
+.titulo-card{
+  justify-content: center;
+}
